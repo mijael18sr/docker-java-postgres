@@ -3,6 +3,39 @@
 ## Descripción
 Aplicación web para gestión de empleados con CRUD completo, utilizando Spring Boot, Thymeleaf y PostgreSQL, totalmente dockerizada.
 
+## 🚀 Inicio Rápido
+
+### Requisitos Previos
+- Docker Desktop instalado y en ejecución
+- Git instalado
+
+### Pasos para Ejecutar el Proyecto
+
+1. **Clonar el repositorio**
+```bash
+git clone https://github.com/mijael18sr/docker-java-postgres.git
+cd docker-java-postgres
+```
+
+2. **Levantar el proyecto con Docker**
+```bash
+docker compose up --build
+```
+
+3. **Acceder a la aplicación**
+   - Abre tu navegador en: http://localhost:8080
+
+¡Listo! La aplicación estará corriendo con la base de datos PostgreSQL configurada automáticamente.
+
+### Detener el Proyecto
+```bash
+# Presiona Ctrl+C en la terminal donde está corriendo
+# O si lo levantaste en segundo plano:
+docker compose down
+```
+
+---
+
 ## Tecnologías
 - Java 21
 - Spring Boot 3.5.6
@@ -48,25 +81,25 @@ src/
 ### Con Docker Compose (Recomendado)
 ```bash
 # Construir y levantar los contenedores
-docker-compose up --build
+docker compose up --build
 
 # O en segundo plano
-docker-compose up -d --build
+docker compose up -d --build
 
 # Ver logs
-docker-compose logs -f
+docker compose logs -f
 
 # Detener los contenedores
-docker-compose down
+docker compose down
 
 # Detener y eliminar volúmenes
-docker-compose down -v
+docker compose down -v
 ```
 
 ### Desarrollo Local
 ```bash
 # Primero levantar solo PostgreSQL
-docker-compose up postgres -d
+docker compose up postgres -d
 
 # Compilar y ejecutar la aplicación
 mvnw spring-boot:run
@@ -142,4 +175,3 @@ docker exec -it postgres-empleado psql -U myuser -d mydatabase
 - La aplicación espera a que PostgreSQL esté completamente iniciado antes de conectarse (healthcheck)
 - Los datos de PostgreSQL persisten en un volumen Docker
 - La aplicación crea/actualiza automáticamente las tablas en la base de datos
-
